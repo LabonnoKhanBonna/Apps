@@ -1,0 +1,97 @@
+.team-boxed {
+    margin-top: 2rem;
+    /* color: #313437; */ /* Remove the fixed font color */
+  }
+  
+
+  .team-boxed h2 {
+    font-weight: bold;
+    margin-bottom: 40px;
+    padding-top: 40px;
+    color: rgb(92, 212, 223); /* Inherit the font color from the parent element */
+  }
+  
+  @media (max-width: 767px) {
+    .team-boxed h2 {
+      margin-bottom: 25px;
+      padding-top: 25px;
+      font-size: 24px;
+    }
+  }
+  
+  .team-boxed .intro {
+    font-size: 16px;
+    max-width: 500px;
+    margin: 0 auto;
+    /* color: inherit; */ /* Remove the fixed font color */
+  }
+  
+  .team-boxed .intro p {
+    margin-bottom: 0;
+  }
+  
+  .team-boxed .people {
+    padding: 50px 0;
+  }
+  
+  .team-boxed .item {
+    text-align: center;
+    /* border-radius: 5px; */
+  }
+  
+  .team-boxed .item .box {
+    text-align: center;
+    padding: 30px;
+    /* background-color: #2d9fae; */
+    background: transparent;
+    border-radius: 5%;
+  }
+  
+  .team-boxed .item .name {
+    font-weight: bold;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    /* color: white; */ /* Remove the fixed font color */
+  }
+  
+  .team-boxed .item .title {
+    text-transform: uppercase;
+    font-weight: bold;
+    /* color: #d0d0d0; */ /* Remove the fixed font color */
+    letter-spacing: 2px;
+    font-size: 13px;
+  }
+  
+  .team-boxed .item .description {
+    font-size: 15px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    /* color: inherit; */ /* Remove the fixed font color */
+  }
+  
+  .team-boxed .item img {
+    max-width: 160px;
+    max-height: 160px;
+  }
+  
+  .team-boxed .social {
+    font-size: 18px;
+    /* color: #a2a8ae; */ /* Remove the fixed font color */
+  }
+  
+  .team-boxed .social a {
+    color: inherit;
+    margin: 0 10px;
+    display: inline-block;
+    opacity: 0.7;
+  }
+  
+  .team-boxed .social a:hover {
+    opacity: 1;
+  }
+  
+  .cardHeight {
+    height: 30rem;
+    color: rgba(58, 216, 231, 0.622); /* Set the font color relative to the background image */
+  }
+  

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Potato Disease Predict{% endblock title %}
+
+{% block body %}
+<div style="margin-top: 15%; ">
+
+    <h1 style="font-size: 75px; color: rgb(255, 255, 255); text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black;" class="text-center">Upload Image</h1>
+    <div class="card text-center">
+        <div class="card-body">
+            <form enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="formFile" class="form-label visually-hidden">Choose an image</label>
+                    <label for="formFile" class="upload-icon">
+                        <img src="static\up-loading.png" alt="Upload Icon" width="64" height="64">
+                        <input class="visually-hidden" type="file" id="formFile" name="image" accept="image/*" required>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-danger">Submit</button>
+            </form>
+            <!-- Add an empty img element for displaying the selected image -->
+            <img id="selectedImage" style="max-width: 300px; margin: 20px auto; display: block;">
+        </div>
+        <h1 style="font-size: 75px; color: rgb(5, 239, 208); text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black;">Prediction Result</h1>
+        {% if prediction %}
+            <p style="font-size: 34px; color: rgb(16, 188, 201); text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black;">The predicted class is: {{ prediction }}</p>
+            <img src="{{ prediction_image_url }}" alt="Predicted Image" style="width: 200px; object-fit: cover; margin: 20px auto; display: block;">
+        {% else %}
+        <p style="font-size: 75px; color: rgb(5, 239, 208); text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black;">No Prediction Available</p>
+        {% endif %}
+    </div>
+</div>
+<script>
+    // JavaScript to display the selected image
+    document.getElementById('formFile').addEventListener('change', function (event) {
+        const selectedImage = document.getElementById('selectedImage');
+        const file = event.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                selectedImage.src = reader.result;
+                selectedImage.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        } else {
+            selectedImage.style.display = 'none';
+        }
+    });
+</script>
+{% endblock body %}
